@@ -8,7 +8,7 @@ const forecast = (latitude, longtitude, callback) => {
         } else if (body.error) {
             callback('Kunne ikke finde vejrudsigt, prøv en anden søgning', undefined)
         } else {
-            callback(undefined, body.daily.data[0].summary + ' Det er ' + body.currently.temperature + ' grader udenfor. Der er ' + body.currently.precipProbability + '%' + ' chance for regn.')
+            callback(undefined, body.daily.data[0].summary + 'Det er ' + body.currently.temperature + '° udenfor. Der er ' + body.currently.precipProbability + '%' + ' chance for regn.')
         }
     })
 }

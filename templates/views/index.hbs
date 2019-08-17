@@ -9,18 +9,39 @@
 
 <body>
     <div class="showcase">
-        {{>header}}
-        <form action="">
-            <input type="text" placeholder="Location">
-            <button>Søg</button>
-        </form>
-
-        <p id="message-1"></p>
-        <p id="message-2"></p>
+        <div class="upper_text">{{>header}}</div>
+        <div class="card">
+            <div class="card_upper">
+                <div class="location">
+                    <div class="location_search">
+                        <form action="">
+                            <input type="text" placeholder="Bynavn" onfocus="placeholder=''" >
+                            <button>
+                                Søg
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                 <div class="background">
+          <div class="background_item"></div>
+            </div>
+        </div>
+            <div class="card_lower">
+                    <div class="weather">
+                        <div class="weather_description">
+                            <p id="message-1"></p>
+                            <p id="message-2"></p>
+                        </div>
+                        <i class="weather_icon">
+                            <img src="https://img.icons8.com/ultraviolet/48/000000/sun.png">
+                        </i>
+                        
+                    </div>
+                </div>
+        </div>
     </div>
-
-    {{>footer}}
 </body>
 
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
+
 </html>

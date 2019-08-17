@@ -5,7 +5,7 @@ const forecast = require('./utils/forecast')
 const geocode = require('./utils/geocode')
 
 const app = express()
-
+const port = process.env.PORT || 3000
 
 //define path for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -100,6 +100,6 @@ app.get('*', (req, res) => {
     })
 })
 //starts up the server when called
-app.listen(3000, () => {
-    console.log('Serveren er oppe på port 3000')
+app.listen(port, () => {
+    console.log('Serveren er oppe på port' + port)
 }) //this starts up the browser. When you're actually going to open an official browser, you don't say port 3000, there will already be a default browser.

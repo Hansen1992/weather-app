@@ -1,9 +1,6 @@
-body {
-    color: #333333;
+body,
+html {
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 650px;
-    padding: 0 16px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -16,6 +13,41 @@ footer {
     padding: 16px 0;
 }
 
+.background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.5), transparent);
+    background-color: #2aa1c0;
+    transition: background-color 0.5s;
+  }
+  
+  .upper_text {
+    position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+    }
+    
+  .background_item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 550px;
+    width: 550px;
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.3;
+    transition: transform 0.5s;
+  }
 header {
     margin-top: 16px;
     margin-bottom: 48px;
@@ -38,17 +70,118 @@ header a {
 
 .showcase {
     flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-input {
-    border: 1px solid #cccccc;
-    padding: 8px
+.card {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 3rem 5rem -2rem rgba(0, 0, 0, 0.2);
+    width: 600px;
+    margin: 10px;
+    transition: box-shadow 0.2s;
 }
 
-button {
-    cursor: pointer;
-    border: 1px solid #888888;
-    background: #888888;
-    color: #eeeeee;
-    padding: 8px;
+.card:hover {
+    box-shadow: 0 3rem 5rem -2rem rgba(0, 0, 0, 0.3);
 }
+
+.card_upper {
+    position: relative;
+}
+
+.location {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    padding: 50px 50px 50px;
+}
+
+@media (min-width: 460px) {
+    .location {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.location_search {
+    font-size: 100px;
+    font-weight: 300;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+}
+form {
+    text-align: center;
+}
+
+.weather {
+    position: relative;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.weather_description {
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+.weather_icon {
+    position: absolute;
+    top: -200px;
+    right: 10px;
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    text-align: center;
+    font-size: 40px;
+    line-height: 70px;
+    transition: color 0.5s;
+}
+
+@media (min-width: 460px) {
+    .weather_icon {
+        top: -50px;
+        right: 30px;
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+        line-height: 100px;
+        color: #2aa1c0;
+        background: #fff;
+        border-radius: 50%;
+    }
+}
+
+    input {
+        border: 1px solid #cccccc;
+        padding: 8px;
+        border-radius: 5px;
+        box-shadow: 0 0 50px rgba(#000, .3);
+        width: 200px;
+    }
+
+    button {
+        cursor: pointer;
+        border: 1px solid #c0492a;
+        border-radius: 5px;
+        background: #c0492a;
+        color: #eeeeee;
+        padding: 8px;
+    }
+    .card_lower {
+        position: relative;
+        z-index: 1;
+        background: #fff;
+      }
