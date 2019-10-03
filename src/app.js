@@ -14,7 +14,7 @@ const partialPath = path.join(__dirname, '../templates/partials')
 
 //Setup handlebars engine and views location
 app.set('view engine', 'hbs')
-app.set('views', viewPath) // for at få dine hbs til at virke (når de er ude for app.js's directory og ikke hedder 'view', men f.eks. templates.) Hvis ikke du redirecter, så kan den ikke finde folderen.
+app.set('views', viewPath)
 hbs.registerPartials(partialPath)
 //setup static directory
 app.use(express.static(publicDirectoryPath))
@@ -23,7 +23,7 @@ app.get('', (req, res) => {
     res.render('index', {
         title: 'Vejret',
         name: 'Martin Hansen'
-    }) //render istedet for send gør det muigt at render en af vores hbs views. Når du henter en view-fil skal du bare skrive selve navnet på filen som f.eks 'view'. Ingen behov for 'view.hbs'. Efterfølgende kan du skrive, hvad den dynamiske index.hbs page skal indeholde.
+    }) 
 })
 
 app.get('/about', (req, res) => {
@@ -49,7 +49,7 @@ app.get('/weather', (req, res) => {
     })
 }
 
-geocode(req.query.address, (error, {latitude, longtitude, location} = {}) => { // koden = {} er default structuring. Dette gør, at hvis man indtaster noget, der ikke høre til (som f.eks. et "!"), så skriver siden ikke (kan ikke etablere forbindelse), men derimod udsender vores error message.
+geocode(req.query.address, (error, {latitude, longtitude, location} = {}) => {
     if(error) {
     return res.send({error})
     }
@@ -65,7 +65,7 @@ geocode(req.query.address, (error, {latitude, longtitude, location} = {}) => { /
     })
 })
 })
-//på denne måde, at du costumize dine 404-sider.
+
 app.get('/about/*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -91,7 +91,7 @@ app.get('/help/*', (req, res) => {
         errorMessage: 'Siden "hjælp" blev ikke fundet'
     })
 })
-// create 404 page THIS NEEDS TO BE LAST! Else it will intervene with the other pages
+
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -102,4 +102,4 @@ app.get('*', (req, res) => {
 //starts up the server when called
 app.listen(port, () => {
     console.log('Serveren er oppe på port' + port)
-}) //this starts up the browser. When you're actually going to open an official browser, you don't say port 3000, there will already be a default browser.
+}) 
